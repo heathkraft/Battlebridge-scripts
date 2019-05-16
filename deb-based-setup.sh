@@ -19,6 +19,7 @@ dpkg -l | grep -qw git || sudo apt install -yyq git
 dpkg -l | grep -qw efibootmgr || sudo apt install -yyq efibootmgr
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
 dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
+dpkg -l | grep -qw muon || sudo apt install -yyq muon
 
 # Install Chrome Browser.
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
