@@ -36,7 +36,7 @@ dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
 #dpkg -l | grep -qw muon || sudo apt install -yyq muon
 #dpkg -l | grep -qw muon || sudo apt install -yyq muon
 
-# Custom Kernels/drivers
+# Kernels/drivers
 # Liquorix
 curl 'https://liquorix.net/add-liquorix-repo.sh' | sudo bash
 sudo apt-get install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
@@ -55,7 +55,7 @@ sudo apt-get install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
 #sudo aptitude update
 #sudo apt install polychromatic -y
 
-# Install Browsers.
+# Browsers.
 # Brave
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
