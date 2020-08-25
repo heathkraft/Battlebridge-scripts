@@ -79,6 +79,17 @@ rm teamviewer_amd64.deb
 # Coding
 # Python
 # Arduino
+# Powershell
+# Download the Microsoft repository GPG keys
+wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+# Register the Microsoft repository GPG keys
+sudo dpkg -i packages-microsoft-prod.deb
+# Update the list of products
+sudo apt-get update
+# Install PowerShell
+sudo apt-get install -y powershell
+# Start PowerShell
+#pwsh
 # VSCode
 sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
@@ -95,6 +106,7 @@ sudo apt update
 sudo apt install notepadqq
 
 # FreeCAD- temporary placeholder, not technically coding
+# Inkscape
 
 # Gaming
 # Steam
