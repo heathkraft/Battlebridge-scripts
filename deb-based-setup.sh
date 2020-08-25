@@ -8,8 +8,8 @@ sudo apt update
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 1015216E75198A89
 #sudo add-apt-repository -y ppa:libreoffice/ppa
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 83FBA1751378B444
-deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
-deb-src http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
+#deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
+#deb-src http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
 
 # Remove Fluendo mp3 codec if installed.
 sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
