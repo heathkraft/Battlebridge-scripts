@@ -29,7 +29,7 @@ dpkg -l | grep -qw htop || sudo apt install -yyq htop
 dpkg -l | grep -qw terminator || sudo apt install -yyq terminator
 dpkg -l | grep -qw apt-transport-https || sudo apt install -yyq apt-transport-https
 dpkg -l | grep -qw curl || sudo apt install -yyq curl
-dpkg -l | grep -qw grub-configurator || sudo apt install -yyq grub-configurator
+dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
 dpkg -l | grep -qw cmatrix || sudo apt install -yyq cmatrix
 dpkg -l | grep -qw git || sudo apt install -yyq git
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
@@ -117,6 +117,8 @@ sudo apt install notepadqq
 #sudo add-apt-repository ppa:webupd8team/y-ppa-manager
 #sudo apt-get update
 #sudo apt-get install y-ppa-manager
+#deb http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu focal main 
+#deb-src http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu focal main 
 
 
 
