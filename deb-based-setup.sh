@@ -30,10 +30,10 @@ dpkg -l | grep -qw cmatrix || sudo apt install -yyq cmatrix
 dpkg -l | grep -qw git || sudo apt install -yyq git
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
 dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
+dpkg -l | grep -qw software-properties-common || sudo apt install -yyq software-properties-common
 # KDE
 #dpkg -l | grep -qw dolphin || sudo apt install -yyq dolphin
 #dpkg -l | grep -qw kdeconnect || sudo apt install -yyq kdeconnect
-#dpkg -l | grep -qw muon || sudo apt install -yyq muon
 #dpkg -l | grep -qw muon || sudo apt install -yyq muon
 
 # Kernels/drivers
@@ -76,7 +76,21 @@ rm teamviewer_amd64.deb
 # Python
 # Arduino
 # VSCode
+sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+
 # Notepadqq
+#sudo add-apt-repository ppa:notepadqq-team/notepadqq
+#sudo apt update
+#sudo apt-get install notepadqq
+#echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
+#sudo nano /etc/apt/sources.list.d/notepadqq.list
+#deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+
 # FreeCAD- temporary placeholder, not technically coding
 
 # Gaming
