@@ -5,7 +5,11 @@ sudo apt clean
 sudo apt update
 
 #sudo add-apt-repository -y ppa:mozillateam/ppa
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 1015216E75198A89
 #sudo add-apt-repository -y ppa:libreoffice/ppa
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 83FBA1751378B444
+deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
+deb-src http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
 
 # Remove Fluendo mp3 codec if installed.
 sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
@@ -83,13 +87,12 @@ sudo apt install code
 
 # Notepadqq
 #sudo add-apt-repository ppa:notepadqq-team/notepadqq
-#sudo apt update
-#sudo apt-get install notepadqq
-#echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
-#sudo nano /etc/apt/sources.list.d/notepadqq.list
-#deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main
-#deb-src http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main
-#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+# above will only work after adding the correct signing key - installs latest ubuntu version
+# below works as is -installs ubuntu trusty version
+echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
+sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+sudo apt update
+sudo apt install notepadqq
 
 # FreeCAD- temporary placeholder, not technically coding
 
@@ -111,6 +114,9 @@ sudo apt install code
 #rm megasync-xUbuntu_18.04_amd64.deb
 # Google Photos
 
+#sudo add-apt-repository ppa:webupd8team/y-ppa-manager
+#sudo apt-get update
+#sudo apt-get install y-ppa-manager
 
 
 
