@@ -104,7 +104,7 @@ echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" 
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
 sudo apt update
 sudo apt install notepadqq
-
+# Brackets
 # FreeCAD- temporary placeholder, not technically coding
 # Inkscape
 
