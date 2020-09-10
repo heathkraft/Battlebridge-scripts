@@ -29,13 +29,18 @@ dpkg -l | grep -qw terminator || sudo apt install -yyq terminator
 dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
 dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
+dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
+dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 
 # Kernels/drivers
 # Liquorix
 curl 'https://liquorix.net/add-liquorix-repo.sh' | sudo bash
 sudo apt install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
 # Nvidia
+sudo apt install -yyq nvidia-driver
 # Radeon
+# Keyboard -Ducky One2
+# Mouse -Roccat NYTH
 
 # Browsers
 # Brave
@@ -68,23 +73,31 @@ sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-ke
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
 sudo apt install -yyq code
-
 # Notepadqq
 #sudo add-apt-repository ppa:notepadqq-team/notepadqq
-# above will only work after adding the correct signing key - installs latest ubuntu version
-# below works as is -installs ubuntu trusty version
+# above will only work after finding the correct signing key - installs latest ubuntu version 2.0beta
+# below works as is -installs ubuntu trusty version 1.4stable
 echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
 sudo apt update
 sudo apt install -yyq notepadqq
 # Brackets
-# FreeCAD- temporary placeholder, not technically coding
-# Inkscape
+#https://github.com/adobe/brackets/releases/download/release-1.14.1/Brackets.Release.1.14.1.64-bit.deb
+#sudo add-apt-repository ppa:webupd8team/brackets
+#sudo apt update
+#sudo apt install brackets
 
 # Gaming
 # Steam
+#sudo dpkg --add-architecture i386
+#sudo apt update
+#enable non-free repo
+#sudo apt install steam
 # GOG
 # Lutris
+wget https://download.opensuse.org/repositories/home:/strycore/Debian_9.0/Release.key
+sudo apt-key add Release.key
+echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
 # DOS Box
 
 # Cloud storage
@@ -96,14 +109,16 @@ sudo apt install -yyq notepadqq
 #sudo add-apt-repository ppa:webupd8team/y-ppa-manager
 #sudo apt update
 #sudo apt install y-ppa-manager
-#deb http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu focal main 
+#echo "deb http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/y-ppa-manager.list
 #deb-src http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu focal main 
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com C2518248EEA14886
 
 #sudo add-apt-repository -y ppa:mozillateam/ppa
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 1015216E75198A89
+
 #sudo add-apt-repository -y ppa:libreoffice/ppa
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 83FBA1751378B444
-#deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
+#echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
 #deb-src http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
 
 
