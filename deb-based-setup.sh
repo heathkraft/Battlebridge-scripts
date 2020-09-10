@@ -98,6 +98,7 @@ sudo apt install -yyq notepadqq
 wget https://download.opensuse.org/repositories/home:/strycore/Debian_9.0/Release.key
 sudo apt-key add Release.key
 echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
+sudo apt install -yyq lutris
 # DOS Box
 
 # Cloud storage
