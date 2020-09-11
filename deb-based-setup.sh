@@ -122,6 +122,10 @@ sudo apt install -yyq lutris
 #echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
 #deb-src http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main 
 
+# Kdenlive
+#echo "deb http://ppa.launchpad.net/kdenlive/kdenlive-stable/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/kdenlive.list
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com A59E5EBFCCC61564D6D4365B2763B0EE7709FE97
+#sudo apt update && sudo apt install -yya kdenlive
 
 
 
