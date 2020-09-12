@@ -28,9 +28,10 @@ dpkg -l | grep -qw efibootmgr || sudo apt install -yyq efibootmgr
 dpkg -l | grep -qw terminator || sudo apt install -yyq terminator
 dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
-dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
+#dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
 dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
+#ffmpeg
 
 # Kernels/drivers
 # Liquorix
@@ -61,6 +62,7 @@ rm teamviewer_amd64.deb
 
 # Coding
 # Python
+#sudo apt install -yyq python3 python3-pip
 # Arduino
 # Powershell
 wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
@@ -125,7 +127,14 @@ sudo apt install -yyq lutris
 # Kdenlive
 #echo "deb http://ppa.launchpad.net/kdenlive/kdenlive-stable/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/kdenlive.list
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com A59E5EBFCCC61564D6D4365B2763B0EE7709FE97
-#sudo apt update && sudo apt install -yya kdenlive
+#sudo apt update && sudo apt install -yyq kdenlive
+
+# OBS
+#sudo apt install ffmpeg
+#sudo add-apt-repository ppa:obsproject/obs-studio
+#sudo apt update
+#sudo apt install obs-studio
+
 
 
 
