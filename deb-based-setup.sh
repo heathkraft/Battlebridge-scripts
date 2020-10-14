@@ -18,11 +18,11 @@ sudo apt full-upgrade -yy
 # Apps that will be needed to complete the script, and package management apps.
 dpkg -l | grep -qw software-properties-common || sudo apt install -yyq software-properties-common
 dpkg -l | grep -qw apt-transport-https || sudo apt install -yyq apt-transport-https
+#dpkg -l | grep -qw synaptic || sudo apt install -yyq synaptic
 #dpkg -l | grep -qw aptitude || sudo apt install -yyq aptitude
 dpkg -l | grep -qw tasksel || sudo apt install -yyq tasksel
 dpkg -l | grep -qw gdebi || sudo apt install -yyq gdebi
 dpkg -l | grep -qw curl || sudo apt install -yyq curl
-#dpkg -l | grep -qw synaptic || sudo apt install -yyq synaptic
 dpkg -l | grep -qw muon || sudo apt install -yyq muon
 dpkg -l | grep -qw less || sudo apt install -yyq less
 dpkg -l | grep -qw git || sudo apt install -yyq git
