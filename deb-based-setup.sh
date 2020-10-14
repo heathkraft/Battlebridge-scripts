@@ -43,7 +43,7 @@ dpkg -l | grep -qw htop || sudo apt install -yyq htop
 # Kernels/drivers/configuration apps
 # Liquorix
 curl 'https://liquorix.net/add-liquorix-repo.sh' | sudo bash
-sudo apt install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
+sudo apt install -yyq linux-image-liquorix-amd64 linux-headers-liquorix-amd64
 # Nvidia
 #sudo apt install -yyq nvidia-driver
 # Radeon
@@ -77,12 +77,13 @@ sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 36E81C9267FD1383FCC
 # Remote Access Tools
 # TeamViewer
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-sudo apt install ./teamviewer_amd64.deb
+sudo gdebi -n teamviewer_amd64.deb
 rm teamviewer_amd64.deb
 #remmina
 #ssh
 
 # Cloud storage/sync
+sudo apt install -yyq rclone rclone-browser
 # OneDrive
 # Google Drive
 # MEGA Sync
