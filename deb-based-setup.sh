@@ -61,15 +61,15 @@ curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update && sudo apt install -yyq brave-browser
 # Chrome
-#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#sudo gdebi -n google-chrome-stable_current_amd64.deb
-#rm google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi -n google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 
 # Office apps
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
 echo "deb http://ppa.launchpad.net/mozillateam/ppa/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/mozillateam.list
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0AB215679C571D1C8325275B9BDB3D89CE49EC21
-#dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
+dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
 
 echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
 sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 36E81C9267FD1383FCC4490983FBA1751378B444
