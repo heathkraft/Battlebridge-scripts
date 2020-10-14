@@ -45,7 +45,7 @@ dpkg -l | grep -qw htop || sudo apt install -yyq htop
 curl 'https://liquorix.net/add-liquorix-repo.sh' | sudo bash
 sudo apt install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
 # Nvidia
-sudo apt install -yyq nvidia-driver
+#sudo apt install -yyq nvidia-driver
 # Radeon
 # Keyboard -Ducky One2 config app
 # Mouse -Roccat NYTH config app
@@ -67,13 +67,12 @@ sudo apt update && sudo apt install -yyq brave-browser
 
 # Office apps
 dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
-#sudo add-apt-repository -y ppa:mozillateam/ppa
-#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 1015216E75198A89
+echo "deb http://ppa.launchpad.net/mozillateam/ppa/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/mozillateam.list
+sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0AB215679C571D1C8325275B9BDB3D89CE49EC21
 #dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
 
-#sudo add-apt-repository -y ppa:libreoffice/ppa
-#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 83FBA1751378B444
-#echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
+echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
+sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 36E81C9267FD1383FCC4490983FBA1751378B444
 
 # Remote Access Tools
 # TeamViewer
@@ -91,7 +90,7 @@ rm teamviewer_amd64.deb
 
 # Project development
 dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
-kicad
+sudo apt install -yyq kicad 
 # Python
 sudo apt install -yyq python3 python3-pip
 # Arduino
@@ -118,12 +117,12 @@ sudo apt update && sudo apt install -yyq notepadqq
 
 # Multimedia
 # Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update && sudo apt install -yyq spotify-client
-vlc
-clementine/strawberry
+#curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+#curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+#echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+#sudo apt update && sudo apt install -yyq spotify-client
+sudo apt install -yyq vlc
+#clementine/strawberry
 
 # 'Graphic' design - Audio/Video editing
 # Kdenlive
@@ -138,7 +137,7 @@ clementine/strawberry
 #sudo apt update && sudo apt install -yyq obs-studio
 
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
-audacity
+#audacity
 
 
 
@@ -149,10 +148,10 @@ audacity
 #sudo apt install steam
 # GOG
 # Lutris
-wget https://download.opensuse.org/repositories/home:/strycore/Debian_9.0/Release.key
-sudo apt-key add Release.key
-echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
-sudo apt install -yyq lutris
+#wget https://download.opensuse.org/repositories/home:/strycore/Debian_9.0/Release.key
+#sudo apt-key add Release.key
+#echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_9.0/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
+#sudo apt install -yyq lutris
 # DOS Box
 
 
@@ -160,25 +159,17 @@ sudo apt install -yyq lutris
 
 
 
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt install signal-desktop
+#curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+#echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+#sudo apt update && sudo apt install signal-desktop
 
 
-
+sudo apt full-upgrade -yy
 sudo apt autoremove -yy
 
-#sudo apt autoclean
-Adding the "--clean" option will invoke the apt commands to search for and
-    remove locally cached packages that are no longer in the repositories 
+sudo apt autoclean
 
 
-
-echo "--------------------
--       Done!      -
---------------------"
-
-echo "--------------------"
-echo "- Update Complete! -"
-echo "--------------------"
-exit
+echo "-------------------"
+echo "- Setup Complete! -"
+echo "-------------------"
