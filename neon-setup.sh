@@ -17,7 +17,8 @@ dpkg -l | grep -qw apt-transport-https || sudo apt install -yyq apt-transport-ht
 dpkg -l | grep -qw tasksel || sudo apt install -yyq tasksel
 dpkg -l | grep -qw gdebi || sudo apt install -yyq gdebi
 dpkg -l | grep -qw curl || sudo apt install -yyq curl
-dpkg -l | grep -qw muon || sudo apt install -yyq muon
+dpkg -l | grep -qw muon || sudo apt install -yyq muon 
+#-software-properties-qt
 dpkg -l | grep -qw less || sudo apt install -yyq less
 dpkg -l | grep -qw git || sudo apt install -yyq git
 #sudo dpkg --add-architecture i386
@@ -28,7 +29,7 @@ dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
 #dpkg -l | grep -qw latte-dock || sudo apt install -yyq latte-dock
 #dpkg -l | grep -qw cmatrix || sudo apt install -yyq cmatrix
 dpkg -l | grep -qw ffmpeg || sudo apt install -yyq ffmpeg
-dpkg -l | grep -qw fslint || sudo apt install -yyq fslint
+#dpkg -l | grep -qw fslint || sudo apt install -yyq fslint
 #dpkg -l | grep -qw htop || sudo apt install -yyq htop
 
 # Kernels/drivers/configuration apps
