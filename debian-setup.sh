@@ -1,10 +1,13 @@
 !/bin/bash
 
 # Start by adding Debian repos, including non-free and backports.
-sudo apt-add-reppsitory 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free'
-sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-updates main contrib non-free'
-sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-proposed-updates main contrib non-free'
-sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-backports main contrib non-free'
+#sudo apt-add-reppsitory 'deb http://ftp.us.debian.org/debian/ buster main contrib non-free'
+#sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-updates main contrib non-free'
+#sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-proposed-updates main contrib non-free'
+#sudo apt-add-repository 'deb http://ftp.us.debian.org/debian/ buster-backports main contrib non-free'
+
+#curl -sS http://archive.neon.kde.org/public.key | sudo apt-key add - 
+#echo "deb http://archive.neon.kde.org/user focal main" | sudo tee /etc/apt/sources.list.d/kde.list
 
 # Remove Fluendo mp3 codec if installed.
 sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
@@ -35,7 +38,7 @@ dpkg -l | grep -qw latte-dock || sudo apt install -yyq latte-dock
 #dpkg -l | grep -qw cmatrix || sudo apt install -yyq cmatrix
 dpkg -l | grep -qw ffmpeg || sudo apt install -yyq ffmpeg
 dpkg -l | grep -qw fslint || sudo apt install -yyq fslint
-dpkg -l | grep -qw htop || sudo apt install -yyq htop
+#dpkg -l | grep -qw htop || sudo apt install -yyq htop
 
 # So far, we've stayed within the Debian ecosystem. But, that ends here.
 # From here on, we'll be including outside repos, either for apps not included in Debian repos, or to get more up-to-date versions.
@@ -68,9 +71,9 @@ sudo apt update && sudo apt install -yyq brave-browser
 #rm google-chrome-stable_current_amd64.deb
 
 # Office apps
-dpkg -l | grep -qw calibre || sudo apt -t buster-backports install -yyq calibre
-echo "deb http://ppa.launchpad.net/mozillateam/ppa/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/mozillateam.list
-sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0AB215679C571D1C8325275B9BDB3D89CE49EC21
+dpkg -l | grep -qw calibre || sudo apt install -yyq calibre
+#echo "deb http://ppa.launchpad.net/mozillateam/ppa/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/mozillateam.list
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 0AB215679C571D1C8325275B9BDB3D89CE49EC21
 dpkg -l | grep -qw thunderbird || sudo apt install -yyq thunderbird
 
 #echo "deb http://ppa.launchpad.net/libreoffice/libreoffice-7-0/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/libreoffice7.list
@@ -96,12 +99,12 @@ rm rclone-current-current-linux-amd64.deb
 
 # Project development
 dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
-dpkg -l | grep -qw kicad || sudo apt -t buster-backports install -yyq kicad 
+dpkg -l | grep -qw kicad || sudo apt install -yyq kicad 
 # Python
 dpkg -l | grep -qw python3 || sudo apt install -yyq python3
 dpkg -l | grep -qw python3-pip || sudo apt install -yyq python3-pip
 # Arduino
-dpkg -l | grep -qw arduino || sudo apt -t buster-backports install -yyq arduino
+dpkg -l | grep -qw arduino || sudo apt install -yyq arduino
 # Powershell
 wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -112,9 +115,9 @@ sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-ke
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update && sudo apt install -yyq code
 # Notepadqq
-echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
-sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
-sudo apt update && sudo apt install -yyq notepadqq
+#echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+#sudo apt update && sudo apt install -yyq notepadqq
 # Brackets
 #https://github.com/adobe/brackets/releases/download/release-1.14.1/Brackets.Release.1.14.1.64-bit.deb
 #sudo add-apt-repository ppa:webupd8team/brackets
@@ -138,10 +141,9 @@ dpkg -l | grep -qw vlc || sudo apt install -yyq vlc
 # OBS
 #echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/obs-studio.list
 #sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com BC7345F522079769F5BBE987EFC71127F425E228
-#sudo add-apt-repository ppa:obsproject/obs-studio
 #sudo apt update && sudo apt install -yyq obs-studio
 
-dpkg -l | grep -qw inkscape || sudo apt -t buster-backports install -yyq inkscape
+dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
 
 
@@ -153,12 +155,14 @@ dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
 #sudo apt install steam-launcher dpkg -l | grep -qw htop || sudo apt install -yyq htop
 # GOG
 # Lutris
-echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_10/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
-wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_10/Release.key -O- | sudo apt-key add -
-sudo apt update && sudo apt install -yyq lutris
+#echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_10/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
+#wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_10/Release.key -O- | sudo apt-key add -
+#sudo apt update && sudo apt install -yyq lutris
 # DOS Box
 
-
+# OnionShare
+#deb http://ppa.launchpad.net/micahflee/ppa/ubuntu focal main 
+#7EF33F027E9E4869F46F77E34E72F77D7D158F33
 
 
 
