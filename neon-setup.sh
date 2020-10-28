@@ -23,9 +23,9 @@ dpkg -l | grep -qw git || sudo apt install -yyq git
 #sudo dpkg --add-architecture i386
 # Other system and settings apps.
 dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
-dpkg -l | grep -qw efibootmgr || sudo apt install -yyq efibootmgr
-dpkg -l | grep -qw terminator || sudo apt install -yyq terminator
-dpkg -l | grep -qw latte-dock || sudo apt install -yyq latte-dock
+#dpkg -l | grep -qw efibootmgr || sudo apt install -yyq efibootmgr
+#dpkg -l | grep -qw terminator || sudo apt install -yyq terminator
+#dpkg -l | grep -qw latte-dock || sudo apt install -yyq latte-dock
 #dpkg -l | grep -qw cmatrix || sudo apt install -yyq cmatrix
 dpkg -l | grep -qw ffmpeg || sudo apt install -yyq ffmpeg
 dpkg -l | grep -qw fslint || sudo apt install -yyq fslint
@@ -90,7 +90,7 @@ curl https://rclone.org/install.sh | sudo bash
 
 # Project development
 # FreeCAD
-sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
+#sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
 #dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
 # KiCAD
 sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
@@ -110,9 +110,9 @@ sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-ke
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update && sudo apt install -yyq code
 # Notepadqq
-echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
-sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
-sudo apt update && sudo apt install -yyq notepadqq
+#echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/notepadqq.list
+#sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+#sudo apt update && sudo apt install -yyq notepadqq
 # Brackets
 #https://github.com/adobe/brackets/releases/download/release-1.14.1/Brackets.Release.1.14.1.64-bit.deb
 #sudo add-apt-repository ppa:webupd8team/brackets
@@ -136,7 +136,7 @@ sudo apt install -yyq obs-studio
 
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
-gimp
+#gimp
 
 
 
@@ -144,12 +144,12 @@ gimp
 
 # Gaming
 # Steam
-sudo apt install -yyq steam-installer
+#sudo apt install -yyq steam-installer
 #wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 # GOG
 # Lutris
-sudo add-apt-repository --yes ppa:lutris-team/lutris
-sudo apt install -yyq lutris
+#sudo add-apt-repository --yes ppa:lutris-team/lutris
+#sudo apt install -yyq lutris
 # DOS Box
 
 # Secure Comms
