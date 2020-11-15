@@ -58,13 +58,16 @@ sudo apt install -yyq libreoffice
 #---Calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 #-Multimedia
+#---VLC
 dpkg -l | grep -qw vlc || sudo apt install -yyq vlc
-clementine
-# Spotify
+#---Clementine
+sudo apt install -yyq clementine
+#---Spotify
 #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4773BD5E130D1D45
 #echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 #sudo apt update && sudo apt install -yyq spotify-client
-
+#---Pandora
+sudo apt install -yyq pithos
 
 # Personal eco-system
 #-Remote 'control'
@@ -74,8 +77,8 @@ clementine
 sudo apt --fix-broken install
 rm teamviewer_amd64.deb
 #---Barrier
-remmina
-ssh
+#---Remmina
+#---SSH
 #-Cloud storage/sync
 #---Rclone and browser
 sudo apt install -yyq rclone-browser
@@ -86,8 +89,10 @@ curl https://rclone.org/install.sh | sudo bash
 #   -Googlephotos
 
 # Project tools
+#--Insure Python3 and pip is installed
 dpkg -l | grep -qw python3 || sudo apt install -yyq python3
 dpkg -l | grep -qw python3-pip || sudo apt install -yyq python3-pip
+#---Git
 dpkg -l | grep -qw git || sudo apt install -yyq git
 #---VSCode
 sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
@@ -112,16 +117,20 @@ dpkg -l | grep -qw kicad || sudo apt install -yyq kicad
 dpkg -l | grep -qw arduino || sudo apt install -yyq arduino
 
 # Content creation
-GIMP
+#---GIMP
+sudo apt install -yyq gimp
+#---Inkscape
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
+#---Audacity
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
-Blender
+#---Blender
 #---Kdenlive
 sudo add-apt-repository --yes ppa:kdenlive/kdenlive-stable
 #sudo apt install -yyq kdenlive
 #---OBS
 sudo add-apt-repository --yes ppa:obsproject/obs-studio
 sudo apt install -yyq obs-studio
+#---YouTube-dl
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
@@ -132,18 +141,18 @@ sudo dpkg -i steam.deb && rm steam.deb
 #---Lutris
 sudo add-apt-repository --yes ppa:lutris-team/lutris
 sudo apt install -yyq lutris
-gog 
+#---GOG - with lutris integration, probably will be deleted
 #---XBox controller
 sudo apt install -yyq xboxdrv
 echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.conf
 
 # Comms
-teams
-zoom
-discord
+#---MS Teams
+#---Zoom
+#---Discord
 
 # Privacy/Security
-tor
+#---TOR
 #---OnionShare
 #sudo add-apt-repository ppa:micahflee/ppa
 #sudo apt install -yyq onionshare
@@ -151,8 +160,8 @@ tor
 #curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 #echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 #sudo apt update && sudo apt install -yyq signal-desktop
-protonmail
--vpn--wireguard
+#---Protonmail - if any kind of installable app
+#  -vpn--wireguard
 
 
 # Remove Fluendo mp3 codec if installed.
@@ -169,6 +178,6 @@ echo "-------------------"
 echo "- Setup Complete! -"
 echo "-------------------"
 
-# --Laptop - move this to a switchable function
+# --Laptop - move this to a laptop script
     tlp
     auto-cpu-freq
