@@ -72,8 +72,8 @@ sudo apt install -yyq pithos
 # Personal eco-system
 #-Remote 'control'
 #---TeamViewer
-#wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-#sudo dpkg -i --force-depends teamviewer_amd64.deb
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+sudo dpkg -i --force-depends teamviewer_amd64.deb
 sudo apt --fix-broken install
 rm teamviewer_amd64.deb
 #---Barrier
@@ -167,7 +167,7 @@ echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.
 # Remove Fluendo mp3 codec if installed.
 sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
 
-sudo sed -i 's/focal/groovy/g' /etc/apt/sources.list
+#sudo sed -i 's/focal/groovy/g' /etc/apt/sources.list
 sudo apt clean
 sudo apt update
 sudo apt full-upgrade -yy
