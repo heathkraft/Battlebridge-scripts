@@ -29,6 +29,7 @@ sudo dpkg --add-architecture i386
 #-Drivers and config apps
 sudo ubuntu-drivers autoinstall
 #---Roccat
+#https://sourceforge.net/projects/roccat/files/
 #---Ducky
 #-Umm... other apps...
 sudo apt install -yyq ubuntu-restricted-extras
@@ -48,6 +49,12 @@ sudo apt update && sudo apt install -yyq brave-browser
 #sudo dpkg -n google-chrome-stable_current_amd64.deb
 #rm google-chrome-stable_current_amd64.deb
 #---Edge
+#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+#sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+#sudo rm microsoft.gpg
+#sudo apt update
+#sudo apt install microsoft-edge-dev
 #-Office apps
 #---Thunderbird
 sudo add-apt-repository --yes ppa:timo-jyrinki/thunderbird78
@@ -77,6 +84,7 @@ sudo dpkg -i --force-depends teamviewer_amd64.deb
 sudo apt --fix-broken install
 rm teamviewer_amd64.deb
 #---Barrier
+sudo apt install -yyq barrier
 #---Remmina
 #---SSH
 #-Cloud storage/sync
@@ -107,8 +115,9 @@ sudo apt install -yyq notepadqq
 #sudo apt update && sudo apt install -yyq powershell
 #---Brackets
 #---FreeCAD
-sudo snap install freecad
-sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
+#--Download appimage from github: realthunder version
+#sudo snap install freecad
+#sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
 #dpkg -l | grep -qw freecad || sudo apt install -yyq freecad
 #---KiCAD
 sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
@@ -120,8 +129,11 @@ dpkg -l | grep -qw arduino || sudo apt install -yyq arduino
 #---GIMP
 sudo apt install -yyq gimp
 #---Inkscape
+sudo add-apt-repository ppa:inkscape.dev/stable
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 #---Audacity
+dpkg -l | grep -qw audacity || sudo apt remove -yyq audacity
+sudo add-apt-repository ppa:ubuntuhandbook1/audacity
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
 #---Blender
 #---Kdenlive
@@ -147,12 +159,12 @@ sudo apt install -yyq xboxdrv
 echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.conf
 
 # Comms
-#---MS Teams
-#---Zoom
-#---Discord
+#---MS Teams - download deb pkg
+#---Zoom - download deb pkg
+#---Discord - download deb pkg
 
 # Privacy/Security
-#---TOR
+#---TOR - download pkg
 #---OnionShare
 #sudo add-apt-repository ppa:micahflee/ppa
 #sudo apt install -yyq onionshare
