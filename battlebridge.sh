@@ -129,16 +129,16 @@ dpkg -l | grep -qw arduino || sudo apt install -yyq arduino
 #---GIMP
 sudo apt install -yyq gimp
 #---Inkscape
-sudo add-apt-repository ppa:inkscape.dev/stable
+sudo add-apt-repository --yes ppa:inkscape.dev/stable
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 #---Audacity
 dpkg -l | grep -qw audacity || sudo apt remove -yyq audacity
-sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+sudo add-apt-repository --yes ppa:ubuntuhandbook1/audacity
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
 #---Blender
 #---Kdenlive
 sudo add-apt-repository --yes ppa:kdenlive/kdenlive-stable
-#sudo apt install -yyq kdenlive
+sudo apt install -yyq kdenlive
 #---OBS
 sudo add-apt-repository --yes ppa:obsproject/obs-studio
 sudo apt install -yyq obs-studio
@@ -153,7 +153,7 @@ sudo dpkg -i steam.deb && rm steam.deb
 #---Lutris
 sudo add-apt-repository --yes ppa:lutris-team/lutris
 sudo apt install -yyq lutris
-#---GOG - with lutris integration, probably will be deleted
+#---GOG - integrated with lutris
 #---XBox controller
 sudo apt install -yyq xboxdrv
 echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.conf
@@ -166,7 +166,7 @@ echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.
 # Privacy/Security
 #---TOR - download pkg
 #---OnionShare
-#sudo add-apt-repository ppa:micahflee/ppa
+#sudo add-apt-repository --yes ppa:micahflee/ppa
 #sudo apt install -yyq onionshare
 #---Signal
 #curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
