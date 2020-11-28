@@ -5,16 +5,17 @@
 sudo rm /etc/apt/sources.list.d/preinsta*
 # Clean apt-cache, refresh, and upgrade all currently installed apps in preparation for the rest of the setup script.
 sudo apt clean
-sudo apt update
-sudo apt full-upgrade -yy
+#sudo apt update
+#sudo apt full-upgrade -yy
+sudo pkcon refresh && sudo pkcon update
 
 # Basic Linux mgmt apps
 dpkg -l | grep -qw apt-transport-https || sudo apt install -yyq apt-transport-https
 dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
+dpkg -l | grep -qw synaptic || sudo apt install -yyq synaptic
 dpkg -l | grep -qw aptitude || sudo apt install -yyq aptitude
 dpkg -l | grep -qw tasksel || sudo apt install -yyq tasksel
 dpkg -l | grep -qw curl || sudo apt install -yyq curl
-dpkg -l | grep -qw muon || sudo apt install -yyq muon
 dpkg -l | grep -qw less || sudo apt install -yyq less
 sudo dpkg --add-architecture i386
 
@@ -28,10 +29,12 @@ sudo dpkg --add-architecture i386
 #sudo apt update && sudo apt install linux-xanmod
 #-Drivers and config apps
 sudo ubuntu-drivers autoinstall
+sudo apt install kubuntu-driver-manager
 #---Roccat
 #https://sourceforge.net/projects/roccat/files/
 #---Ducky
 #-Umm... other apps...
+sudo apt install -yyq kubuntu-restricted-extras
 sudo apt install -yyq ubuntu-restricted-extras
 sudo apt install -yyq latte-dock
 sudo apt install -yyq yakuake
@@ -65,6 +68,7 @@ sudo apt install -yyq libreoffice
 #---Calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 #-Multimedia
+#pulseeffects
 #---VLC
 dpkg -l | grep -qw vlc || sudo apt install -yyq vlc
 #---Clementine
@@ -177,7 +181,7 @@ echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.
 
 
 # Remove Fluendo mp3 codec if installed.
-sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
+#sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
 
 #sudo sed -i 's/focal/groovy/g' /etc/apt/sources.list
 sudo apt clean
@@ -191,5 +195,5 @@ echo "- Setup Complete! -"
 echo "-------------------"
 
 # --Laptop - move this to a laptop script
-    tlp
-    auto-cpu-freq
+#    tlp
+#    auto-cpu-freq
