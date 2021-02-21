@@ -7,17 +7,21 @@ sudo rm /etc/apt/sources.list.d/preinsta*
 sudo apt clean
 #sudo apt update
 #sudo apt full-upgrade -yy
-sudo pkcon refresh && sudo pkcon update
+sudo pkcon refresh && sudo pkcon update -y
+
+mkdir ~/bin/
 
 # Basic Linux mgmt apps
+sudo dpkg --add-architecture i386
 dpkg -l | grep -qw apt-transport-https || sudo apt install -yyq apt-transport-https
 dpkg -l | grep -qw grub-customizer || sudo apt install -yyq grub-customizer
 dpkg -l | grep -qw synaptic || sudo apt install -yyq synaptic
 dpkg -l | grep -qw aptitude || sudo apt install -yyq aptitude
+dpkg -l | grep -qw neofetch || sudo apt install -yyq neofetch
 dpkg -l | grep -qw tasksel || sudo apt install -yyq tasksel
+dpkg -l | grep -qw muon || sudo apt install -yyq muon
 dpkg -l | grep -qw curl || sudo apt install -yyq curl
 dpkg -l | grep -qw less || sudo apt install -yyq less
-sudo dpkg --add-architecture i386
 
 # Kernels, Drivers, config/personalization
 #-Custom kernels
@@ -29,15 +33,19 @@ sudo dpkg --add-architecture i386
 #sudo apt update && sudo apt install linux-xanmod
 #-Drivers and config apps
 sudo ubuntu-drivers autoinstall
-sudo apt install kubuntu-driver-manager
+#sudo apt install kubuntu-driver-manager  --- installs but does not work
 #---Roccat
 #https://sourceforge.net/projects/roccat/files/
 #---Ducky
+#Brother Printer drivers
 #-Umm... other apps...
 sudo apt install -yyq kubuntu-restricted-extras
 sudo apt install -yyq ubuntu-restricted-extras
 sudo apt install -yyq latte-dock
 sudo apt install -yyq yakuake
+# https://github.com/TheAssassin/AppImageLauncher/releases
+https://github.com/twpayne/chezmoi -- curl -sfL https://git.io/chezmoi | sh
+#https://github.com/twpayne/chezmoi/releases/download/v1.8.9/chezmoi_1.8.9_linux_amd64.deb
 
 # General PC usage apps
 #-Browsers
@@ -58,6 +66,7 @@ sudo apt update && sudo apt install -yyq brave-browser
 #sudo rm microsoft.gpg
 #sudo apt update
 #sudo apt install microsoft-edge-dev
+
 #-Office apps
 #---Thunderbird
 sudo add-apt-repository --yes ppa:timo-jyrinki/thunderbird78
@@ -68,7 +77,8 @@ sudo apt install -yyq libreoffice
 #---Calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 #-Multimedia
-#pulseeffects
+sudo apt install -yyq pulseeffects
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
 #---VLC
 dpkg -l | grep -qw vlc || sudo apt install -yyq vlc
 #---Clementine
@@ -136,7 +146,7 @@ sudo apt install -yyq gimp
 sudo add-apt-repository --yes ppa:inkscape.dev/stable
 dpkg -l | grep -qw inkscape || sudo apt install -yyq inkscape
 #---Audacity
-dpkg -l | grep -qw audacity || sudo apt remove -yyq audacity
+dpkg -l | grep -qw audacity && sudo apt remove -yyq audacity
 sudo add-apt-repository --yes ppa:ubuntuhandbook1/audacity
 dpkg -l | grep -qw audacity || sudo apt install -yyq audacity
 #---Blender
@@ -153,7 +163,9 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 # Gaming
 #---Steam
 wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-sudo dpkg -i steam.deb && rm steam.deb
+sudo dpkg -i steam.deb
+sudo apt --fix-broken install
+rm steam.deb
 #---Lutris
 sudo add-apt-repository --yes ppa:lutris-team/lutris
 sudo apt install -yyq lutris
@@ -179,14 +191,17 @@ echo 'options bluetooth disable_ertm=Y' | sudo tee -a /etc/modprobe.d/bluetooth.
 #---Protonmail - if any kind of installable app
 #  -vpn--wireguard
 
-
+#sudo apt install digikam kcolorchooser ktorrent speedcrunch kfind redshift plasma-applet-redshift-control cherrytree
+#firewall - apt install gufw
 # Remove Fluendo mp3 codec if installed.
 #sudo apt purge -yyqq gstreamer1.0-fluendo-mp3
 
 #sudo sed -i 's/focal/groovy/g' /etc/apt/sources.list
 sudo apt clean
-sudo apt update
-sudo apt full-upgrade -yy
+sudo pkcon refresh
+sudo pkcon update -y
+#sudo apt update
+#sudo apt full-upgrade -yy
 sudo apt autoremove -yy
 sudo apt autoclean
 
@@ -197,3 +212,5 @@ echo "-------------------"
 # --Laptop - move this to a laptop script
 #    tlp
 #    auto-cpu-freq
+
+#chezmoi init --apply --verbose https://github.com/username/dotfiles.git
