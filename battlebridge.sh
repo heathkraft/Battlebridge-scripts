@@ -40,8 +40,8 @@ sudo ubuntu-drivers autoinstall
 #Brother Printer drivers
 #-Umm... other apps...
 sudo apt install -yyq kubuntu-restricted-extras
-sudo apt install -yyq ubuntu-restricted-extras
-sudo apt install -yyq latte-dock
+#sudo apt install -yyq ubuntu-restricted-extras
+#sudo apt install -yyq latte-dock
 sudo apt install -yyq yakuake
 # https://github.com/TheAssassin/AppImageLauncher/releases
 https://github.com/twpayne/chezmoi -- curl -sfL https://git.io/chezmoi | sh
@@ -88,7 +88,7 @@ sudo apt install -yyq clementine
 #echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 #sudo apt update && sudo apt install -yyq spotify-client
 #---Pandora
-sudo apt install -yyq pithos
+# sudo apt install -yyq pithos
 
 # Personal eco-system
 #-Remote 'control'
