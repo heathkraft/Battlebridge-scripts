@@ -1,3 +1,4 @@
+!/bin/bash
 
 # This will setup my primary computer after I complete my new build.
 # After that, it will mostly serve as a collection of commands for installing apps that I will use piece-meal for other scripts.
@@ -44,8 +45,7 @@ sudo apt install -yyq kubuntu-restricted-extras
 #sudo apt install -yyq latte-dock
 sudo apt install -yyq yakuake
 # https://github.com/TheAssassin/AppImageLauncher/releases
-https://github.com/twpayne/chezmoi -- curl -sfL https://git.io/chezmoi | sh
-#https://github.com/twpayne/chezmoi/releases/download/v1.8.9/chezmoi_1.8.9_linux_amd64.deb
+#https://github.com/twpayne/chezmoi -- curl -sfL https://git.io/chezmoi | sh
 
 # General PC usage apps
 #-Browsers
@@ -76,6 +76,7 @@ sudo add-apt-repository --yes ppa:libreoffice/libreoffice-7-0
 sudo apt install -yyq libreoffice
 #---Calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
 #-Multimedia
 sudo apt install -yyq pulseeffects
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
@@ -101,6 +102,7 @@ rm teamviewer_amd64.deb
 sudo apt install -yyq barrier
 #---Remmina
 #---SSH
+
 #-Cloud storage/sync
 #---Rclone and browser
 sudo apt install -yyq rclone-browser
