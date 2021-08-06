@@ -108,6 +108,9 @@ sudo apt install -yyq barrier
 sudo apt install -yyq rclone-browser
 curl https://rclone.org/install.sh | sudo bash
 #   -Onedrive
+sudo add-apt-repository ppa:jstaf/onedriver
+sudo apt update
+sudo apt install onedriver
 #   -Googledrive
 #   -Mega
 #   -Googlephotos
