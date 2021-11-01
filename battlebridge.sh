@@ -57,7 +57,7 @@ sudo apt update && sudo apt install -yyq brave-browser
 #?sudo apt install -yyq chromium-browser
 #---Chrome
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#sudo dpkg -n google-chrome-stable_current_amd64.deb
+#sudo dpkg -i google-chrome-stable_current_amd64.deb
 #rm google-chrome-stable_current_amd64.deb
 #---Edge
 #curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -100,6 +100,7 @@ sudo apt --fix-broken install
 rm teamviewer_amd64.deb
 #---Barrier
 sudo apt install -yyq barrier
+#--setup to run as service
 #---Remmina
 #---SSH
 
