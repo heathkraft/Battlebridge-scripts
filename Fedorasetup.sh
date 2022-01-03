@@ -19,6 +19,8 @@ neofetch
 grub-customizer
 latte-dock
 yakuake
+$ sudo dnf copr enable capucho/bismuth 
+$ sudo dnf install bismuth
 
 #General usage apps [browser, email, terminal]
 #Brave browser:
