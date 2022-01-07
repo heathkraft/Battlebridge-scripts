@@ -1,32 +1,37 @@
-!/bin/bash
+#!/bin/bash
 #Fedora system install script
 
 #Initial system update to prep for setup
 sudo dnf -y update
 
-#Add general repos -- refresh repo cache
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+#rpmfusion repos
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 #Flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#Brave browser
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+#VSCode
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+#Bismuth
+sudo dnf copr enable capucho/bismuth 
+
+
 dnf check-update
 
-#cli tools
-sudo dnf -y install wget
-neofetch
+#Terminal -- Yakuake, cli tools -- wget, neofetch, dnf-plugins-core
+sudo dnf -y install wget dnf-plugins-core neofetch
 
 #customization tools
 grub-customizer
 latte-dock
 yakuake
-$ sudo dnf copr enable capucho/bismuth 
 $ sudo dnf install bismuth
 
 #General usage apps [browser, email, terminal]
 #Brave browser:
-sudo dnf install dnf-plugins-core
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install brave-browser
 
 thunderbird
@@ -57,10 +62,8 @@ sudo dnf install /path/to/downloaded/package.rpm
 Appimage pool
 appimage launcher
 
-#Project tools
+#Project tools -- VSCode, Notepadqq, FreeCAD, Kicad, Arduino, SuperSlicer
 vscode:
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf check-update
 sudo dnf install code
 
@@ -74,20 +77,13 @@ Command line
 chmod +x ./appimageupdatetool.AppImage
 ./appimageupdatetool.AppImage ./FreeCAD.AppImage
 
-#content tools
-#OBS
-sudo dnf install obs-studio
+#content tools -- OBS, Kdenlive, GIMP, Inkscape, Audacity
+sudo dnf -y install obs-studio gimp inkscape audacity
 
 kdenlive -- flatpak
-gimp
-inkscape
-audacity
 
-#gaming
-lutris
-
-Steam:
-sudo dnf install steam
+#gaming -- Steam, Lutris
+sudo dnf -y install steam lutris
 
 vscodium:
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
@@ -95,3 +91,6 @@ printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbase
 sudo dnf install codium
 
 
+echo "-------------"
+echo "- Complete! -"
+echo "-------------"
