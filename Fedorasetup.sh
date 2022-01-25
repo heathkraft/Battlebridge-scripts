@@ -1,9 +1,10 @@
 #!/bin/bash
-#Fedora system install script
+#Battle-bridge app install/setup script -- Fedora edition
 
 #Initial system update to prep for setup
 sudo dnf -y update
 
+#App mgmt, repos, storefronts
 #rpmfusion repos
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -17,38 +18,38 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 #Bismuth
 sudo dnf copr enable capucho/bismuth 
+Appimage pool
 
 
 dnf check-update
 
-#Terminal -- Yakuake, cli tools -- wget, neofetch, dnf-plugins-core
-sudo dnf -y install wget dnf-plugins-core neofetch
+#Terminal -- Yakuake - tools -- git, wget, neofetch, dnf-plugins-core
+sudo dnf -y install git wget dnf-plugins-core neofetch
 
 #customization tools
-grub-customizer
-latte-dock
-yakuake
-$ sudo dnf install bismuth
+sudo dnf install bismuth grub-customizer latte-dock yakuake
 
-#General usage apps [browser, email, terminal]
-#Brave browser:
+
+#The usual suspects [browser, email client, media player]
+#Brave browser
 sudo dnf install brave-browser
+#Thunderbird email client
+sudo dnf install thunderbird
+#VLC and Clementine media players
+sudo dnf install vlc python-vlc
 
-thunderbird
+
 flatpak install flathub com.github.debauchee.barrier
 calibre
 Obsidian:
 flatpak install flathub md.obsidian.Obsidian
 ? clementine -- flatpak
 
-VLC:
- $> su -
-    #> dnf install vlc
-    #> dnf install python-vlc (optional)
 
 Teamviewer:
 wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 sudo dnf -y install ./teamviewer.x86_64.rpm
+rm teamviewer.x86_64.rpm
 
 
 discord -- flatpak
@@ -59,13 +60,10 @@ Mega:
 Download the package and, in a terminal, install it with:
 sudo dnf install /path/to/downloaded/package.rpm
 
-Appimage pool
 appimage launcher
 
-#Project tools -- VSCode, Notepadqq, FreeCAD, Kicad, Arduino, SuperSlicer
-vscode:
-dnf check-update
-sudo dnf install code
+#Project tools -- VSCode, Notepadqq, FreeCAD, Kicad, Arduino, SuperSlicer, xournal++, obsidian, Powershell
+sudo dnf install code xournalpp
 
 notepadqq -- flatpak
 For more streamlined downloading of AppImages download AppImageUpdate (GUI or the command line version). To perform an update:
@@ -85,10 +83,10 @@ kdenlive -- flatpak
 #gaming -- Steam, Lutris
 sudo dnf -y install steam lutris
 
-vscodium:
-sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
-sudo dnf install codium
+#vscodium:
+#sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+#printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
+#sudo dnf install codium
 
 
 echo "-------------"
