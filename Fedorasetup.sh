@@ -92,3 +92,40 @@ sudo dnf -y install steam lutris minigalaxy
 echo "-------------"
 echo "- Complete! -"
 echo "-------------"
+
+
+
+# Register the Microsoft signature key
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+# Register the Microsoft RedHat repository
+curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
+
+# Update the list of products
+sudo dnf check-update
+
+# Install a system component
+sudo dnf install compat-openssl10
+
+# Install PowerShell
+sudo dnf install -y powershell
+
+# Start PowerShell
+pwsh
+
+
+
+ DNF Configuration
+sudo nano /etc/dnf/dnf.conf
+
+fastestmirror=True
+max_parallel_downloads=10
+defaultyes=True
+keepcache=True
+
+sudo dnf groupupdate core
+
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+
+sudo dnf groupupdate sound-and-video
