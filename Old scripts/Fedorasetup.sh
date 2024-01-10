@@ -27,7 +27,7 @@ dnf check-update
 #Terminal -- Yakuake - tools -- git, wget, neofetch, dnf-plugins-core
 sudo dnf -y install git wget dnf-plugins-core neofetch
 
-#customization tools
+#customization tools (bismuth is a tiling manager)
 sudo dnf -y install bismuth grub-customizer latte-dock yakuake
 
 
@@ -129,3 +129,11 @@ sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=Pack
 
 
 sudo dnf groupupdate sound-and-video
+
+#   xbox controller driver
+dnf copr enable sentry/xone
+dnf install xone lpf-xone-firmware
+lpf approve xone-firmware
+lpf build xone-firmware
+lpf install xone-firmware
+# reboot required to load modules
