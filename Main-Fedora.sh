@@ -20,3 +20,35 @@ curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.
 # Enable COPRs
 sudo dnf copr enable sentry/xone
 
+dnf check-update
+
+# Cli tools
+sudo dnf -y install git wget dnf-plugins-core
+# Cli toys
+sudo dnf -y install neofetch
+
+# My preferred apps. Browser, email, etc.
+sudo dnf -y install brave-browser thunderbird vlc python-vlc
+
+# Cloud services
+# NextCloud
+# Mega
+# OneDrive
+# Google Drive
+
+# Knowledge mgmt
+# calibre
+# obsidian
+
+# Cross-platform mgmt
+# barrier/whatever supports wayland
+# Teamviewer, until I find better
+
+# Comms
+# discord
+# signal
+
+# Project tools
+
+# Content creation
+
