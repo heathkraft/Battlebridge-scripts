@@ -52,3 +52,8 @@ sudo dnf -y install brave-browser thunderbird vlc python-vlc
 
 # Content creation
 
+# Gaming
+
+echo "-------------"
+echo "- Complete! -"
+echo "-------------"
