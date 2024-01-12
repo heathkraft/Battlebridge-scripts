@@ -27,6 +27,13 @@ sudo dnf -y install git wget dnf-plugins-core
 # Cli toys
 sudo dnf -y install neofetch
 
+# Appimage mgmt
+sudo mkdir /home/h/Appimages
+wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
+sudo dnf -y install ./appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
+rm appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
+wget https://github.com/AppImageCommunity/AppImageUpdate/releases/download/2.0.0-alpha-1-20230526/AppImageUpdate-x86_64.AppImage -P /home/h/Appimages
+
 # My preferred apps. Browser, email, etc.
 sudo dnf -y install brave-browser thunderbird vlc python-vlc
 
@@ -43,6 +50,9 @@ sudo dnf -y install brave-browser thunderbird vlc python-vlc
 # Cross-platform mgmt
 # barrier/whatever supports wayland
 # Teamviewer, until I find better
+wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+sudo dnf -y install ./teamviewer.x86_64.rpm
+rm teamviewer.x86_64.rpm
 
 # Comms
 # discord
