@@ -46,6 +46,7 @@ dnf -y install brave-browser thunderbird vlc python-vlc
 # Cloud services
 # NextCloud
 # Mega
+flatpak install flathub nz.mega.MEGAsync
 # OneDrive
 # Google Drive
 
@@ -54,9 +55,10 @@ dnf -y install brave-browser thunderbird vlc python-vlc
 flatpak install flathub com.calibre_ebook.calibre
 # obsidian
 flatpak install flathub md.obsidian.Obsidian
+flatpak install flathub com.github.xournalpp.xournalpp
 
 # Cross-platform mgmt
-# barrier/whatever supports wayland
+# Input-leap
 # Teamviewer, until I find better
 wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 dnf -y install ./teamviewer.x86_64.rpm
@@ -68,13 +70,23 @@ flatpak install flathub com.discordapp.Discord
 # signal
 
 # Project tools
+dnf -y install code
+flatpak install flathub com.notepadqq.Notepadqq
+dnf -y install compat-openssl10 powershell
 
 # Content creation
 flatpak install flathub com.obsproject.Studio
 
 # Gaming
+dnf -y install steam
 flatpak install flathub com.heroicgameslauncher.hgl
 flatpak install flathub net.lutris.Lutris
+# xbox controller driver
+dnf install xone lpf-xone-firmware
+lpf approve xone-firmware
+lpf build xone-firmware
+lpf install xone-firmware
+# reboot required to load modules
 
 echo "-------------"
 echo "- Complete! -"
