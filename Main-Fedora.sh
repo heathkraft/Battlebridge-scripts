@@ -1,6 +1,12 @@
 #!/bin/bash
 # Application installation script for a fresh install
 
+#improve DNF settings
+echo 'fastestmirror=True' >> /etc/dnf/dnf.conf
+echo 'defaultyes=True' >> /etc/dnf/dnf.conf
+echo 'max_parallel_downloads=10' >> /etc/dnf/dnf.conf
+echo 'keepcache=True' >> /etc/dnf/dnf.conf
+
 # Insure everything is up to date before proceeding
 sudo dnf -y update --best --allowerasing --skip-broken
 
