@@ -1,7 +1,7 @@
 #!/bin/bash
 # Setup script for a fresh battlebridge installation
 
-#improve DNF settings
+# improve DNF settings
 echo 'fastestmirror=True' >> /etc/dnf/dnf.conf
 echo 'defaultyes=True' >> /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=10' >> /etc/dnf/dnf.conf
@@ -35,10 +35,8 @@ dnf -y install cmatrix
 
 # Appimage mgmt
 mkdir /home/h/Appimages
-wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
-dnf -y install ./appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
-rm appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
-wget https://github.com/AppImageCommunity/AppImageUpdate/releases/download/2.0.0-alpha-1-20230526/AppImageUpdate-x86_64.AppImage -P /home/h/Appimages
+flatpak install flathub io.github.prateekmedia.appimagepool
+flatpak install flathub it.mijorus.gearlever
 
 # The usual apps
 dnf -y install brave-browser thunderbird vlc python-vlc
@@ -51,15 +49,16 @@ flatpak install flathub nz.mega.MEGAsync
 # Google Drive
 
 # Knowledge mgmt
-# calibre
+# calibre- ebook library mgmt
 flatpak install flathub com.calibre_ebook.calibre
-# obsidian
+# obsidian- notes and 'personal knwledge mgmt'
 flatpak install flathub md.obsidian.Obsidian
+# xournalapp- handwritten notes
 flatpak install flathub com.github.xournalpp.xournalpp
 
 # Cross-platform mgmt
 # Input-leap
-# Teamviewer, until I find better
+# Teamviewer, until I can implement a better solution
 wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 dnf -y install ./teamviewer.x86_64.rpm
 rm teamviewer.x86_64.rpm
@@ -73,9 +72,11 @@ flatpak install flathub com.discordapp.Discord
 dnf -y install code
 flatpak install flathub com.notepadqq.Notepadqq
 dnf -y install compat-openssl10 powershell
+flatpak install flathub org.freecadweb.FreeCAD
 
 # Content creation
 flatpak install flathub com.obsproject.Studio
+#flatpak install flathub com.github.wwmm.easyeffects
 
 # Gaming
 dnf -y install steam
