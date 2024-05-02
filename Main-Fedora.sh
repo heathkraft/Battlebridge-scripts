@@ -31,7 +31,7 @@ dnf check-update
 # Cli tools
 dnf -y install git wget dnf-plugins-core
 # Cli toys
-dnf -y install cmatrix
+dnf -y install cmatrix fastfetch
 
 # Appimage mgmt
 mkdir /home/h/Appimages
