@@ -75,7 +75,7 @@ dnf -y install compat-openssl10 powershell
 flatpak install flathub org.freecadweb.FreeCAD
 
 # Content creation
-flatpak install flathub com.obsproject.Studio
+dnf -y install obs-studio
 #flatpak install flathub com.github.wwmm.easyeffects
 
 # Gaming
