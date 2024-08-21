@@ -29,7 +29,7 @@ dnf copr enable sentry/xone
 dnf check-update
 
 # Cli tools
-dnf -y install git wget dnf-plugins-core
+dnf -y install git wget dnf-plugins-core dnfdragora
 # Cli toys
 dnf -y install cmatrix fastfetch
 
@@ -83,7 +83,7 @@ dnf -y install steam
 flatpak install flathub com.heroicgameslauncher.hgl
 flatpak install flathub net.lutris.Lutris
 # xbox controller driver
-dnf install xone lpf-xone-firmware
+dnf -y install xone lpf-xone-firmware
 lpf approve xone-firmware
 lpf build xone-firmware
 lpf install xone-firmware
