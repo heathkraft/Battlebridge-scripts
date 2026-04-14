@@ -72,7 +72,7 @@ flatpak install flathub com.discordapp.Discord
 dnf -y install code
 flatpak install flathub com.notepadqq.Notepadqq
 dnf -y install compat-openssl10 powershell
-flatpak install flathub org.freecadweb.FreeCAD
+flatpak install flathub org.freecad.FreeCAD
 
 # Content creation
 dnf -y install obs-studio
